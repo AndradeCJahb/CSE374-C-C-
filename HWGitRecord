@@ -1,0 +1,18 @@
+7950ca58 (Christopher Andrade 2023-10-31 15:41:37 -0700  1) CSE 374 Materials is a repository with sample code for CSE 374.
+7950ca58 (Christopher Andrade 2023-10-31 15:41:37 -0700  2) 
+7950ca58 (Christopher Andrade 2023-10-31 15:41:37 -0700  3) Welcome class of Fall 2023
+7950ca58 (Christopher Andrade 2023-10-31 15:41:37 -0700  4) 
+7950ca58 (Christopher Andrade 2023-10-31 15:41:37 -0700  5) I think I finally understand how to navigate and stuff with linux lol. Barely got through the first HWs Thank god its over
+7950ca58 (Christopher Andrade 2023-10-31 15:41:37 -0700  6) and I can actually use this interface now.
+7950ca58 (Christopher Andrade 2023-10-31 15:41:37 -0700  7) ccode: contains C demo code, compile with gcc
+7950ca58 (Christopher Andrade 2023-10-31 15:41:37 -0700  8) cppcode: contains C++ demo code, compile with g++
+7950ca58 (Christopher Andrade 2023-10-31 15:41:37 -0700  9) cpplint.py: linter for c code, make executable and call with a source file as an argument
+7950ca58 (Christopher Andrade 2023-10-31 15:41:37 -0700 10) 
+7950ca58 (Christopher Andrade 2023-10-31 15:41:37 -0700 11) hw5: contains support files for homework 5
+7950ca58 (Christopher Andrade 2023-10-31 15:41:37 -0700 12) hw6: contains support code for memory management homework
+7950ca58 (Christopher Andrade 2023-10-31 15:41:37 -0700 13) rational.tar: contains support code for c++ rational numbers 
+commit 54a1e86d98205dff269295c74ae0663b8d3edd9b
+Author: Christopher Andrade <andradec@uw.edu>
+Date:   Tue Oct 31 15:45:52 2023 -0700
+
+    HWGit commit 2
