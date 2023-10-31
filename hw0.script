@@ -1,0 +1,23 @@
+Script started on 2023-09-26 23:33:15-07:00 [TERM="xterm" TTY="/dev/pts/1" COLUMNS="117" LINES="31"]
+[?2004h[andradec@calgary cse374]$ mntclassdir cse374
+[?2004l/data/netid/andradec/cse374 is already mounted
+[?2004h[andradec@calgary cse374]$ ccs[K[Kd cse374
+[?2004lbash: cd: cse374: No such file or directory
+[?2004h[andradec@calgary cse374]$ echo $s[KSHELL
+[?2004l/bin/bash
+[?2004h[andradec@calgary cse374]$ whoami
+[?2004landradec
+[?2004h[andradec@calgary cse374]$ pwd
+[?2004l/data/netid/andradec/cse374
+[?2004h[andradec@calgary cse374]$ uname -a
+[?2004lLinux calgary.cs.washington.edu 5.14.0-284.30.1.el9_2.x86_64 #1 SMP PREEMPT_DYNAMIC Sat Sep 16 09:55:41 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+[?2004h[andradec@calgary cse374]$ gcc --version -std=c11
+[?2004lgcc (GCC) 11.3.1 20221121 (Red Hat 11.3.1-4)
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+[?2004h[andradec@calgary cse374]$ exit
+[?2004lexit
+
+Script done on 2023-09-26 23:34:04-07:00 [COMMAND_EXIT_CODE="0"]

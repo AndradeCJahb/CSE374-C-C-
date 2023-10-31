@@ -1,0 +1,316 @@
+Script started on 2023-10-17 19:53:01-07:00 [TERM="xterm" TTY="/dev/pts/59" COLUMNS="237" LINES="66"]
+[?2004h[andradec@calgary cse374]$ mc[Kkdir HW [K1
+[?2004lmkdir: cannot create directory ‘HW1’: File exists
+[?2004h[andradec@calgary cse374]$ cd HW1
+[?2004l[?2004h[andradec@calgary HW1]$ pwd
+[?2004l/data/netid/andradec/cse374/HW1
+[?2004h[andradec@calgary HW1]$ echo ":[KLinux is great"
+[?2004lLinux is great
+[?2004h[andradec@calgary HW1]$ echo "Linux is great:[K" > now
+[?2004l[?2004h[andradec@calgary HW1]$ date >>  now[K[K[K[Know
+[?2004l[?2004h[andradec@calgary HW1]$ uname -r[K[K[K[K[K[K[K[Kuname -r >> now
+[?2004l[?2004h[andradec@calgary HW1]$ wc -l nhow[K[K[Kow
+[?2004l3 now
+[?2004h[andradec@calgary HW1]$ cat now
+[?2004lLinux is great
+Tue Oct 17 07:54:31 PM PDT 2023
+5.14.0-284.30.1.el9_2.x86_64
+[?2004h[andradec@calgary HW1]$ cp now past now
+[?2004lcp: target 'now' is not a directory
+[?2004h[andradec@calgary HW1]$ cp now [K pastnow
+[?2004l[?2004h[andradec@calgary HW1]$ cd ~
+[?2004l[?2004h[andradec@calgary ~]$ find -name pastnow
+[?2004l./cse374/HW1/pastnow
+./udrive/cse374/HW1/pastnow
+[?2004h[andradec@calgary ~]$ cd ~/cse374/HW1
+[?2004l[?2004h[andradec@calgary HW1]$ ls -l
+[?2004ltotal 8
+-rwxr-xr-- 1 andradec man 76 Oct 17 19:54 [0m[01;32mnow[0m
+-rw-r--r-- 1 andradec man 76 Oct 17 19:55 pastnow
+[?2004h[andradec@calgary HW1]$ chom[K[Kmod 754
+[?2004lchmod: missing operand after ‘754’
+Try 'chmod --help' for more information.
+[?2004h[andradec@calgary HW1]$ chmod 754 now
+[?2004l[?2004h[andradec@calgary HW1]$ cd ~
+[?2004l[?2004h[andradec@calgary ~]$ vi .bashrc
+[?2004l[?1049h[22;0;0t[>4;2m[?1h=[?2004h[?1004h[1;66r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[66;1H".bashrc" 27L, 508B[2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[1;1H[34m# .bashrc[m[2;1H[K[3;1H[34m# Source global definitions[m[3;28H[K[4;1H[33mif [[m [33m-f[m /etc/bashrc [33m];[m [33mthen
+        . [m/etc/bashrc
+[33mfi[m
+
+[34m# User specific environment[m
+[33mif ![m [35m[[[m [33m"[m[35m$PATH[m[33m"[m [33m=~[m [33m"[m[35m$HOME[m[31m/.local/bin:[m[35m$HOME[m[31m/bin:[m[33m"[m [35m]][m
+[33mthen[m
+    [35mPATH[m[33m="[m[35m$HOME[m[31m/.local/bin:[m[35m$HOME[m[31m/bin:[m[35m$PATH[m[33m"
+fi
+export[m PATH
+
+[34m# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions[m
+[33mif [[m [33m-d[m ~/.bashrc.d [33m];[m [33mthen[20;9Hfor[m rc [33min[m ~/.bashrc.d/*[33m;[m [33mdo[21;17Hif [[m [33m-f[m [33m"[m[35m$rc[m[33m"[m [33m];[m [33mthen[22;17H        . "[m[35m$rc[m[33m"[23;17Hfi[24;9Hdone
+fi
+alias [m[36mll[m[33m='[m[31mls -1[m[33m'
+unset[m[36m rc[m
+[1m[34m~                                                                                                                                                                                                                                            [29;1H~                                                                                                                                                                                                                                            [30;1H~                                                                                                                                                                                                                                            [31;1H~                                                                                                                                                                                                                                            [32;1H~                                                                                                                                                                                                                                            [33;1H~                                                                                                                                                                                                                                            [34;1H~                                                                                                                                                                                                                                            [35;1H~                                                                                                                                                                                                                                            [36;1H~                                                                                                                                                                                                                                            [37;1H~                                                                                                                                                                                                                                            [38;1H~                                                                                                                                                                                                                                            [39;1H~                                                                                                                                                                                                                                            [40;1H~                                                                                                                                                                                                                                            [41;1H~                                                                                                                                                                                                                                            [42;1H~                                                                                                                                                                                                                                            [43;1H~                                                                                                                                                                                                                                            [44;1H~                                                                                                                                                                                                                                            [45;1H~                                                                                                                                                                                                                                            [46;1H~                                                                                                                                                                                                                                            [47;1H~                                                                                                                                                                                                                                            [48;1H~                                                                                                                                                                                                                                            [49;1H~                                                                                                                                                                                                                                            [50;1H~                                                                                                                                                                                                                                            [51;1H~                                                                                                                                                                                                                                            [52;1H~                                                                                                                                                                                                                                            [53;1H~                                                                                                                                                                                                                                            [54;1H~                                                                                                                                                                                                                                            [55;1H~                                                                                                                                                                                                                                            [56;1H~                                                                                                                                                                                                                                            [57;1H~                                                                                                                                                                                                                                            [58;1H~                                                                                                                                                                                                                                            [59;1H~                                                                                                                                                                                                                                            [60;1H~                                                                                                                                                                                                                                            [61;1H~                                                                                                                                                                                                                                            [62;1H~                                                                                                                                                                                                                                            [63;1H~                                                                                                                                                                                                                                            [64;1H~                                                                                                                                                                                                                                            [65;1H~                                                                                                                                                                                                                                            [m[66;220H1,1[11CAll[1;1H[?25h[?25l[66;210H:[1;1H[66;1H[K[66;1H:[?25hq[?25l[?2004l[>4;m[23;2t[23;1t[66;1H[K[66;1H[?1004l[?2004l[?1l>[?25h[>4;m[?1049l[23;0;0t[?2004h[andradec@calgary ~]$ emacs .bashrc
+[?2004l[?1049h[22;0;0t[?12;25h[?1h=[H[2J[66d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[65d[?25l[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental) ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[66d[?25lLoading /usr/share/emacs/site-lisp/site-start.d/autoconf-init.el (source)...done[K[H
+[?12l[?25h[?12;25h[66;49H[?25lcmake-init.el (source)...[K[H
+[?12l[?25h[?12;25h[66;74H[?25ldone[H
+[?12l[?25h[?12;25h[66;49H[?25ldesktop-entry-mode-init.el (source)...[H
+[?12l[?25h[?12;25h[66;87H[?25ldone[H
+[?12l[?25h[?12;25h[66;49H[?25lmercurial-site-start.el (source)...[K[H
+[?12l[?25h[?12;25h[66;84H[?25ldone[H
+[?12l[?25h[?12;25h[>0c[?2004h[?1004h[66d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
+[?12l[?25h[?12;25h[66d[?25lSetting up indent for shell type bash[K[H
+[?12l[?25h[?12;25h[66d[?25lIndentation variables are now local.[K[H
+[?12l[?25h[?12;25h[66;13H[?25lsetup for shell type bash[H
+[?12l[?25h[?12;25h[66d[?25lIndentation setup for shell type bash[K[H[7mFile Edit Options Buffers Tools Sh-Script Help                                                                                                                                                                                               [0m[39;49m[27m
+[A
+[31m# .bashrc [39;49m                                                                                                                                                                                                                                   
+[A
+[K
+[31m# Source global definitions [39;49m                                                                                                                                                                                                                 
+[A
+[1m[36mif[0m[39;49m [ -f /etc/bashrc ]; [1m[36mthen[0m[39;49m[K
+        [1m[34m.[0m[39;49m /etc/bashrc[K
+[1m[36mfi[0m[39;49m[K
+[K
+[31m# User specific environment [39;49m                                                                                                                                                                                                                 
+[A
+[1m[36mif[0m[39;49m ! [[ [32m"$PATH"[39;49m =~ [32m"$HOME/.local/bin:$HOME/bin:"[39;49m ]][K
+[1m[36mthen[0m[39;49m[K
+    [33mPATH[39;49m=[32m"$HOME/.local/bin:$HOME/bin:$PATH"[39;49m[K
+[1m[36mfi[0m[39;49m[K
+[1m[34mexport[0m[39;49m PATH[K
+[K
+[31m# Uncomment the following line if you don't like systemctl's auto-paging feature: [39;49m                                                                                                                                                           
+[A
+[31m# export SYSTEMD_PAGER= [39;49m                                                                                                                                                                                                                     
+[A
+[K
+[31m# User specific aliases and functions [39;49m                                                                                                                                                                                                       
+[A
+[1m[36mif[0m[39;49m [ -d ~/.bashrc.d ]; [1m[36mthen[0m[39;49m[K
+        [1m[36mfor[0m[39;49m rc[1m[36m in[0m[39;49m ~/.bashrc.d/*; [1m[36mdo[0m[39;49m[K
+                [1m[36mif[0m[39;49m [ -f [32m"$rc"[39;49m ]; [1m[36mthen[0m[39;49m[K
+                        [1m[34m.[0m[39;49m [32m"$rc"[39;49m[K
+                [1m[36mfi[0m[39;49m[K
+        [1m[36mdone[0m[39;49m[K
+[1m[36mfi[0m[39;49m[K
+[1m[34malias[0m[39;49m [33mll[39;49m=[32m'ls -1'[39;49m[K
+[1m[34munset[0m[39;49m rc[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UU-:----F1  [0m[39;49m[27m[7m[1m.bashrc     [0m[39;49m[27m[7m   All L1     (Shell-script[bash]) ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[66d[K[2d[66d[K[?1004l[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?2004h[andradec@calgary ~]$ source .bashrc
+[?2004l[?2004h[andradec@calgary ~]$ ll
+[?2004l[0m[01;34mcse374[0m
+hw0.script
+[01;34mudrive[0m
+[?2004h[andradec@calgary ~]$ emacs
+[?2004l[?1049h[22;0;0t[?12;25h[?1h=[H[2J[66d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[65d[?25l[7m-UUU:----F1  [0m[39;49m[27m[7m[1m*scratch*   [0m[39;49m[27m[7m   All L1     (Fundamental) ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[66d[?25lLoading /usr/share/emacs/site-lisp/site-start.d/autoconf-init.el (source)...done[K[H
+[?12l[?25h[?12;25h[66;49H[?25lcmake-init.el (source)...[K[H
+[?12l[?25h[?12;25h[66;74H[?25ldone[H
+[?12l[?25h[?12;25h[66;49H[?25ldesktop-entry-mode-init.el (source)...[H
+[?12l[?25h[?12;25h[66;87H[?25ldone[H
+[?12l[?25h[?12;25h[66;49H[?25lmercurial-site-start.el (source)...[K[H
+[?12l[?25h[?12;25h[66;84H[?25ldone[H
+[?12l[?25h[?12;25h[>0c[?2004h[?1004h[66d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
+[?12l[?25h[?12;25h[66d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H[7mFile Edit Options Buffers Tools Help                                                                                                                                                                                                         [0m[39;49m[27m
+[A
+Welcome to GNU Emacs, one component of the GNU/Linux operating system.[K
+[K
+Get help           C-h  (Hold down CTRL and press h)[K
+[4m[34mEmacs manual[0m[39;49m       C-h r        [4m[34mBrowse manuals[0m[39;49m     C-h i[K
+[4m[34mEmacs tutorial[0m[39;49m     C-h t        Undo changes       C-x u[K
+[4m[34mBuy manuals[0m[39;49m        C-h RET      Exit Emacs         C-x C-c[K
+[4m[34mActivate menubar[0m[39;49m   M-`[K
+(‘C-’ means use the CTRL key.  ‘M-’ means use the Meta (or Alt) key.[K
+If you have no Meta key, you may instead type ESC followed by the character.)[K
+Useful tasks:[K
+[4m[34mVisit New File[0m[39;49m                  [4m[34mOpen Home Directory[0m[39;49m[K
+[4m[34mCustomize Startup[0m[39;49m               [4m[34mOpen *scratch* buffer[0m[39;49m[K
+[K
+GNU Emacs 27.2 (build 1, x86_64-redhat-linux-gnu, GTK+ Version 3.24.31, cairo version 1.17.4)[K
+ of 2023-05-09[K
+Copyright (C) 2021 Free Software Foundation, Inc.[K
+[K
+GNU Emacs comes with ABSOLUTELY NO WARRANTY; type C-h C-w for [4m[34mfull details[0m[39;49m.[K
+Emacs is Free Software--Free as in Freedom--so you can redistribute copies[K
+of Emacs and modify it; type C-h C-c to see [4m[34mthe conditions[0m[39;49m.[K
+Type C-h C-o for information on [4m[34mgetting the latest version[0m[39;49m.[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UUU:%%--F1  [0m[39;49m[27m[7m[1m*GNU Emacs* [0m[39;49m[27m[7m   All L1     (Fundamental) ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[66d[K[?1004l[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m
+[1]+  Stopped                 emacs
+[?2004h[andradec@calgary ~]$ fg
+[?2004lemacs
+[?1049h[22;0;0t[?12;25h[?1h=[?1004h[?2004h[66;1H[K[H[?25l[7mFile Edit Options Buffers Tools Help                                                                                                                                                                                                         [0m[39;49m[27m
+[A
+Welcome to GNU Emacs, one component of the GNU/Linux operating system.[K
+[K
+Get help           C-h  (Hold down CTRL and press h)[K
+[4m[34mEmacs manual[0m[39;49m       C-h r        [4m[34mBrowse manuals[0m[39;49m     C-h i[K
+[4m[34mEmacs tutorial[0m[39;49m     C-h t        Undo changes       C-x u[K
+[4m[34mBuy manuals[0m[39;49m        C-h RET      Exit Emacs         C-x C-c[K
+[4m[34mActivate menubar[0m[39;49m   M-`[K
+(‘C-’ means use the CTRL key.  ‘M-’ means use the Meta (or Alt) key.[K
+If you have no Meta key, you may instead type ESC followed by the character.)[K
+Useful tasks:[K
+[4m[34mVisit New File[0m[39;49m                  [4m[34mOpen Home Directory[0m[39;49m[K
+[4m[34mCustomize Startup[0m[39;49m               [4m[34mOpen *scratch* buffer[0m[39;49m[K
+[K
+GNU Emacs 27.2 (build 1, x86_64-redhat-linux-gnu, GTK+ Version 3.24.31, cairo version 1.17.4)[K
+ of 2023-05-09[K
+Copyright (C) 2021 Free Software Foundation, Inc.[K
+[K
+GNU Emacs comes with ABSOLUTELY NO WARRANTY; type C-h C-w for [4m[34mfull details[0m[39;49m.[K
+Emacs is Free Software--Free as in Freedom--so you can redistribute copies[K
+of Emacs and modify it; type C-h C-c to see [4m[34mthe conditions[0m[39;49m.[K
+Type C-h C-o for information on [4m[34mgetting the latest version[0m[39;49m.[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[7m-UUU:%%--F1  [0m[39;49m[27m[7m[1m*GNU Emacs* [0m[39;49m[27m[7m   All L1     (Fundamental) ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------[0m[39;49m[27m
+[A[2d[?12l[?25h[?12;25h[66d[K[?1004l[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m
+[1]+  Stopped                 emacs
+[?2004h[andradec@calgary ~]$ ps -u andradec
+[?2004l    PID TTY          TIME CMD
+3699758 ?        00:00:00 systemd
+3699768 ?        00:00:00 (sd-pam)
+3699775 ?        00:00:00 sshd
+3699776 pts/59   00:00:00 bash
+3701325 pts/59   00:00:00 ssh
+3701886 ?        00:00:00 sshfs
+3724019 ?        00:00:00 sshd
+3724020 ?        00:00:00 sftp-server
+3729362 pts/59   00:00:00 script
+3729364 pts/69   00:00:00 bash
+3732126 pts/69   00:00:00 emacs
+3732543 pts/69   00:00:00 ps
+[?2004h[andradec@calgary ~]$ ps -u andradec | grep emacs
+[?2004l3732126 pts/69   00:00:00 [01;31m[Kemacs[m[K
+[?2004h[andradec@calgary ~]$ kill -9 3732126
+[?2004l[?2004h[andradec@calgary ~]$ echo "$USER isgreat"[K[K[K[K[K[K great"
+[?2004landradec is great
+[1]+  Killed                  emacs
+[?2004h[andradec@calgary ~]$ exit
+[?2004lexit
+
+Script done on 2023-10-17 20:00:45-07:00 [COMMAND_EXIT_CODE="0"]
