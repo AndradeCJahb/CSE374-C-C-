@@ -16,7 +16,7 @@ out="$1"
 exec="$2"
 shift 2
 
-if ! [ -e "$exec" ]; then
+if ! [ -x "$exec" ]; then
     echo "$exec does not exist or is not executable." >&2
     exit 1
 fi
@@ -61,23 +61,26 @@ else
 fi
 
 for test in "$@"; do
-    if [ ! -e "$test" ]; then
-        if ! wget "https://courses.cs.washington.edu/courses/cse374/23au/assignments/$test" -O "$test" 2>/dev/null; then
+    
+    if [ -f "$test" ]; then
+		echo "Testing $test" >> "$out"
+        if cat "$test" | ./"$exec" smallDictionary.txt <<< $'exit' >/dev/null; then
+            echo "Test $test ... SUCCESS" >> "$out"
+        else
+            echo "Test $test ... FAILURE" >> "$out"
+        fi
+    else
+        wget "https://courses.cs.washington.edu/courses/cse374/23au/assignments/$test" -O "$test"
+        if [ -f "$test" ]; then
+            if cat "$test" | ./"$exec" smallDictionary.txt <<< $'exit' >/dev/null; then
+                echo "Test $test ... SUCCESS" >> "$out"
+            else
+                echo "Test $test ... FAILURE" >> "$out"
+            fi
+            rm "$test"
+        else
             echo "Skipping $test" >> "$out"
-            continue
         fi
     fi
-    echo "Testing $test" >> "$out"
-
-    if cat "$test" | ./"$exec" smallDictionary.txt <<< $'exit' >/dev/null; then
-        echo "Test $test ... SUCCESS" >> "$out"
-    else
-        echo "Test $test ... FAILURE" >> "$out"
-    fi
-
-    if [ -e "$test" ] && [ -n "$(command -v wget)" ]; then
-        rm "$test"
-    fi
 done
-
 exit 0
