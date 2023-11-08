@@ -1,0 +1,78 @@
+#!/bin/bash
+#
+# Author: Christopher Andrade
+# UWNetID: andradec
+# CSE 374 Homework 3
+# 11/7/23
+#
+# 
+
+if [ $# -lt 3 ]; then
+    echo "Usage: tninetest OUTPUT EXECUTABLE TESTFILE..."
+    exit 1
+fi
+
+out="$1"
+exec="$2"
+shift 2
+
+if ! [ -e "$exec" ]; then
+    echo "$exec does not exist or is not executable." >&2
+    exit 1
+fi
+
+if [ -e "$out" ]; then
+	echo "Replacing $out" 
+	rm "$out"
+fi
+
+export PATH="$PATH:./"
+
+if ! ./"$exec" >/dev/null; then
+    echo "Test Usability ... SUCCESS" >> "$out"
+else
+    echo "Test Usability ... FAILURE" >> "$out"
+fi
+
+if ! ./"$exec" notReal.txt >/dev/null; then
+    echo "Test Handle Bad Dictionary ... SUCCESS" >> "$out"
+else
+    echo "Test Handle Bad Dictionary ... FAILURE" >> "$out"
+fi
+
+if ./"$exec" smallDictionary.txt <<< $'exit' >/dev/null; then
+    echo "Test Load Dictionary ... SUCCESS" >> "$out"
+else
+    echo "Test Load Dictionary ... FAILURE" >> "$out"
+fi
+
+
+if ./"$exec" smallDictionary.txt << INPUT | grep -q "Your word is: jello"
+53556
+exit
+INPUT
+then
+    echo "Test Find Word ... SUCCESS" >> "$out"
+else
+    echo "Test Find Word ... FAILURE" >> "$out"
+fi
+
+for test in "$@"; do
+    if [ ! -e "$test" ]; then
+        if ! wget "https://courses.cs.washington.edu/courses/cse374/23au/assignments/$test" -O "$test"; then
+            echo "Skipping $test" >> "$out"
+            continue
+        fi
+	fi
+    echo "Testing $test" >> "$out"
+
+    if cat "$test" | ./"$exec" smallDictionary.txt <<< $'exit' >/dev/null; then
+        echo "Test $test ... SUCCESS" >> "$out"
+    else
+        echo "Test $test ... FAILURE" >> "$out"
+    fi
+
+    if [ -e "$test" ] && [ -n "$(command -v wget)" ]; then
+        rm "$test"
+    fi
+done
