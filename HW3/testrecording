@@ -1,0 +1,10 @@
+Testing t9
+Tue Nov  7 08:00:49 PM PST 2023
+Test Usability ... SUCCESS
+Test Handle Bad Dictionary ... SUCCESS
+Test Load Dictionary ... SUCCESS
+Test Find Word ... SUCCESS
+Skipping Testfile1
+Skipping not a file
+Testing Testfile2
+Test Testfile2 ... SUCCESS
