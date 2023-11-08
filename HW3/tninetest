@@ -21,12 +21,15 @@ if ! [ -e "$exec" ]; then
     exit 1
 fi
 
+
 if [ -e "$out" ]; then
 	echo "Replacing $out" 
 	rm "$out"
 fi
 
 export PATH="$PATH:./"
+echo "Testing $exec" >> "$out"
+date >> "$out"
 
 if ! ./"$exec" >/dev/null 2>&1; then
     echo "Test Usability ... SUCCESS" >> "$out"
@@ -59,7 +62,7 @@ fi
 
 for test in "$@"; do
     if [ ! -e "$test" ]; then
-        if ! wget "https://courses.cs.washington.edu/courses/cse374/23au/assignments/$test" -O "$test"; then
+        if ! wget "https://courses.cs.washington.edu/courses/cse374/23au/assignments/$test" -O "$test" 2>/dev/null; then
             echo "Skipping $test" >> "$out"
             continue
         fi
