@@ -8,7 +8,7 @@
 # 
 
 if [ $# -lt 3 ]; then
-    echo "Usage: tninetest OUTPUT EXECUTABLE TESTFILE..."
+    echo "Usage: tninetest OUTPUT EXECUTABLE TESTFILE..." >&2
     exit 1
 fi
 
@@ -28,13 +28,13 @@ fi
 
 export PATH="$PATH:./"
 
-if ! ./"$exec" >/dev/null; then
+if ! ./"$exec" >/dev/null 2>&1; then
     echo "Test Usability ... SUCCESS" >> "$out"
 else
     echo "Test Usability ... FAILURE" >> "$out"
 fi
 
-if ! ./"$exec" notReal.txt >/dev/null; then
+if ! ./"$exec" notReal.txt >/dev/null 2>&1; then
     echo "Test Handle Bad Dictionary ... SUCCESS" >> "$out"
 else
     echo "Test Handle Bad Dictionary ... FAILURE" >> "$out"
@@ -76,3 +76,5 @@ for test in "$@"; do
         rm "$test"
     fi
 done
+
+exit 0
