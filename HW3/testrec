@@ -4,5 +4,6 @@ Test Load Dictionary ... SUCCESS
 Test Find Word ... SUCCESS
 Testing Testfile1
 Test Testfile1 ... SUCCESS
+Skipping not a file
 Testing Testfile2
 Test Testfile2 ... SUCCESS

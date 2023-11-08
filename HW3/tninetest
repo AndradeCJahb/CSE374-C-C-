@@ -63,7 +63,7 @@ for test in "$@"; do
             echo "Skipping $test" >> "$out"
             continue
         fi
-	fi
+    fi
     echo "Testing $test" >> "$out"
 
     if cat "$test" | ./"$exec" smallDictionary.txt <<< $'exit' >/dev/null; then
