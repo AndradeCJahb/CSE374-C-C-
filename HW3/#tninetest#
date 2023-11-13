@@ -1,0 +1,97 @@
+#!/bin/bash
+#
+# Author: Christopher Andrade
+# UWNetID: andradec
+# CSE 374 Homework 3
+# 11/7/23
+#
+# 
+
+if [ $# -lt 3 ]; then
+    echo "Usage: tninetest OUTPUT EXECUTABLE TESTFILE..." >&2
+    exit 1
+fi
+
+out="$1"
+exec="$2"
+shift 2
+
+if ! [ -e "$exec" ]; then
+    echo "$exec does not exist or is not executable." >&2
+    exit 1
+fi
+
+if [ -e "$out" ]; then
+	echo "Replacing $out" 
+	rm "$out"
+fi
+
+export PATH="$PATH:./"
+
+if ! ./"$exec" >/dev/null 2>&1; then
+    echo "Test Usability ... SUCCESS" >> "$out"
+else
+    echo "Test Usability ... FAILURE" >> "$out"
+fi
+
+if ! ./"$exec" notReal.txt >/dev/null 2>&1; then
+    echo "Test Handle Bad Dictionary ... SUCCESS" >> "$out"
+else
+    echo "Test Handle Bad Dictionary ... FAILURE" >> "$out"
+fi
+
+if ./"$exec" smallDictionary.txt <<< $'exit' >/dev/null; then
+    echo "Test Load Dictionary ... SUCCESS" >> "$out"
+else
+    echo "Test Load Dictionary ... FAILURE" >> "$out"
+fi
+
+
+if ./"$exec" smallDictionary.txt << INPUT | grep -q "Your word is: jello"
+53556
+exit
+INPUT
+then
+    echo "Test Find Word ... SUCCESS" >> "$out"
+else
+    echo "Test Find Word ... FAILURE" >> "$out"
+fi
+
+for test in "$@"; do
+    if [ ! -e "$test" ]; then
+        if ! wget "https://courses.cs.washington.edu/courses/cse374/23au/assignments/$test" -O "$test"; then
+            echo "Skipping $test" >> "$out"
+            continue
+        fi
+	fi
+    echo "Testing $test" >> "$out"
+
+    if cat "$test" | ./"$exec" smallDictionary.txt <<< $'exit' >/dev/null; then
+        echo "Test $test ... SUCCESS" >> "$out"
+    else
+        echo "Test $test ... FAILURE" >> "$out"
+    fi
+
+    if [ -e "$test" ] && [ -n "$(command -v wget)" ]; then
+        rm "$test"
+    fi
+done
+
+exit 0
+
+
+
+    Your name and date
+    A brief description of your program
+    A list of any resources you used during this assignment
+    The supplied TESTFILEs are designed to test specific potential failure points. For each file identify one thing that is being tested.
+    This sample test script does not thoroughly test the executable code. What is another test that you could run?
+	
+	Christopher Andrade 11/7/23
+	
+	The script tninetest requires an output file, executable, and at least a single test
+	file. The executable is tested to ensure it is usable and can handle both real and 
+	non-existant Dictionaries. The script then runs the executable with each testfile and
+	outputs the results of the executable and test file tests to the appropriate/given
+	output file.
+	Slides from previous classes concerning linu
