@@ -4,7 +4,7 @@ CFLAGS = -Wall -std=c11
 all: tnine
 
 tnine: trie.o tnine.o
-	$(CC) $(CFLAGS) -o tnine trie.o tnine.o
+	$(CC) $(CFLAGS) -o t9 trie.o tnine.o
 
 trie.o: trie.c trienode.h
 	$(CC) $(CFLAGS) -c trie.c
