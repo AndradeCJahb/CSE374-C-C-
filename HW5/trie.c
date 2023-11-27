@@ -1,10 +1,8 @@
-/* trie.c
-   Contains a trie implementation which can be populated with
-   words according to their t9 translation and read from using
-   the appropriate t9 code.
-   CSE 374 HW5
-   Copyright 2022 C. Andrade
+/* trie implements a trie, made of trieNodes. This includes
+   code to build, search, and delete a trie
+   CSE374, HW5, 22wi
 */
+
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -24,15 +22,15 @@ void insertWord(trieNode* root, const char* word) {
         }
         current = current->branches[currNum - '2'];
     }
-    free(wordNum);
 
+    free(wordNum);
     if (current->word == NULL) {
         current->word = (char*)malloc(strlen(word) +1);
         if (current->word == NULL) {
             perror("Error copying words into trie");
             exit(EXIT_FAILURE);
         }
-        strncpy(current->word, word, MAXLEN +2);
+        strcpy(current->word, word);
     }
     else
     {
@@ -47,7 +45,7 @@ void insertWord(trieNode* root, const char* word) {
             perror("Error copying words into trie");
             exit(EXIT_FAILURE);
         }
-        strncpy(current->word, word, MAXLEN +2);
+        strcpy(current->word, word);
     }
 }
 
@@ -56,15 +54,18 @@ char* get_word(trieNode *root, char *pattern) {
 
     for (size_t i = 0; i < strlen(translate(pattern)); i++) {
         char currentChar = pattern[i];
+
         int index;
         if (currentChar == '#') {
             index = BRANCHES - 1;
         } else {
             index = currentChar - '2';
         }
+
         if (current->branches[index] == NULL) {
             return NULL;
         }
+
         current = current->branches[index];
     }
 
@@ -77,10 +78,12 @@ char* get_word(trieNode *root, char *pattern) {
 
 char* translate(const char* word) {
     char* t9Sequence = (char*)malloc((strlen(word) + 1));
+
     if (t9Sequence == NULL) {
         perror("Error allocating memory for T9 translation");
         exit(EXIT_FAILURE);
     }
+
     for (size_t i = 0; i < strlen(word); i++) {
         char currentChar = tolower(word[i]);
 
@@ -116,6 +119,7 @@ trieNode* createTrieNode() {
     for (int i = 0; i < BRANCHES; i++) {
         node->branches[i] = NULL;
     }
+
     node->word = NULL;
     return node;
 }
@@ -127,6 +131,7 @@ void free_tree(trieNode* root) {
     for (int i = 0; i < BRANCHES; ++i) {
         free_tree(root->branches[i]);
     }
+
     free(root->word);
     free(root);
 }

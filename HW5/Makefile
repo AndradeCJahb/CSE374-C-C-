@@ -1,9 +1,9 @@
 CC = gcc
-CFLAGS = -g -Wall -std=c11
+CFLAGS = -Wall -std=c11
 
-all: tnine
+all: t9
 
-tnine: trie.o tnine.o
+t9: trie.o tnine.o
 	$(CC) $(CFLAGS) -o t9 trie.o tnine.o
 
 trie.o: trie.c trienode.h
@@ -13,4 +13,4 @@ tnine.o: tnine.c trienode.h
 	$(CC) $(CFLAGS) -c tnine.c
 
 clean:
-	rm -f tnine *.o
+	rm -f t9 *.o
