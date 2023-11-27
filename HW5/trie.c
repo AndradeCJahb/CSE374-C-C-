@@ -31,7 +31,7 @@ void insertWord(trieNode* root, const char* word) {
             perror("Error copying words into trie");
             exit(EXIT_FAILURE);
         }
-        strncpy(current->word, word, MAXLEN +2);
+        strncpy(current->word, word, strlen(word) + 1);
     } else {
         while (current->word != NULL) {
             if (current->branches[BRANCHES - 1] == NULL) {
@@ -44,7 +44,7 @@ void insertWord(trieNode* root, const char* word) {
             perror("Error copying words into trie");
             exit(EXIT_FAILURE);
         }
-        strncpy(current->word, word, MAXLEN +2);
+        strncpy(current->word, word, strlen(word) + 1);
     }
 }
 

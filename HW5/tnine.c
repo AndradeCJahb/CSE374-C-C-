@@ -11,7 +11,6 @@
 #include <string.h>
 #include "trienode.h"
 
-
 void run_session(trieNode *wordTrie);
 
 int main(int argc, char **argv) {
@@ -86,7 +85,7 @@ void run_session(trieNode *wordTrie) {
             }
         }
 
-        strncpy(prevInput, input, MAXLEN +2);
+        strncpy(prevInput, input, strlen(input) +1);
         if (word != NULL) {
             printf("'%s'\n", word);
         } else if (strchr(input, '#')) {
