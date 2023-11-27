@@ -1,8 +1,9 @@
-/* tnine is a program that drives a trie / t9 program.  This code
+/* tnine.c is a program that drives a trie / t9 program.  This code
    will build a trie, according to trienode.  It will also run
    an interactive session where the user can retrieve words using
    t9 sequences.
-   CSE374, HW5, 22wi
+   CSE 374 HW5
+   Copyright 2023 C. Andrade
 */
 
 #include <stdlib.h>
@@ -85,7 +86,7 @@ void run_session(trieNode *wordTrie) {
             }
         }
 
-        strcpy(prevInput, input);
+        strncpy(prevInput, input, MAXLEN +2);
         if (word != NULL) {
             printf("'%s'\n", word);
         } else if (strchr(input, '#')) {

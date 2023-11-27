@@ -1,6 +1,7 @@
 /* trie implements a trie, made of trieNodes. This includes
    code to build, search, and delete a trie
-   CSE374, HW5, 22wi
+   CSE 374 HW5
+   Copyright 2023 C. Andrade
 */
 
 #include <stdio.h>
@@ -30,10 +31,8 @@ void insertWord(trieNode* root, const char* word) {
             perror("Error copying words into trie");
             exit(EXIT_FAILURE);
         }
-        strcpy(current->word, word);
-    }
-    else
-    {
+        strncpy(current->word, word, MAXLEN +2);
+    } else {
         while (current->word != NULL) {
             if (current->branches[BRANCHES - 1] == NULL) {
                 current->branches[BRANCHES - 1] = createTrieNode();
@@ -45,7 +44,7 @@ void insertWord(trieNode* root, const char* word) {
             perror("Error copying words into trie");
             exit(EXIT_FAILURE);
         }
-        strcpy(current->word, word);
+        strncpy(current->word, word, MAXLEN +2);
     }
 }
 
