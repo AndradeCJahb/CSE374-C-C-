@@ -12,6 +12,7 @@
 
 char* translate(const char* word);
 
+// Inserts a word into trie data structure based on its t9 code.
 void insertWord(trieNode* root, const char* word) {
     trieNode* current = root;
     char* wordNum  = translate(word);
@@ -25,6 +26,10 @@ void insertWord(trieNode* root, const char* word) {
     }
 
     free(wordNum);
+	
+	// Allocates and stores word associated with a specific node. Also
+	// hanldes case in which node already contains a word and therefore 
+	// word must be stored in a different adjacent node.
     if (current->word == NULL) {
         current->word = (char*)malloc(strlen(word) +1);
         if (current->word == NULL) {
@@ -48,12 +53,14 @@ void insertWord(trieNode* root, const char* word) {
     }
 }
 
+// Using t9 code and trie reaches and returns its corresponding word.
 char* get_word(trieNode *root, char *pattern) {
     trieNode *current = root;
 
     for (size_t i = 0; i < strlen(translate(pattern)); i++) {
         char currentChar = pattern[i];
 
+		// Stores index which indicates which node to go to next.
         int index;
         if (currentChar == '#') {
             index = BRANCHES - 1;
@@ -75,17 +82,21 @@ char* get_word(trieNode *root, char *pattern) {
     }
 }
 
+// Returns the t9 code of a given word.
 char* translate(const char* word) {
+	
+	// Stores pointer to t9 sequence that is created by given word.
     char* t9Sequence = (char*)malloc((strlen(word) + 1));
-
     if (t9Sequence == NULL) {
         perror("Error allocating memory for T9 translation");
         exit(EXIT_FAILURE);
     }
 
     for (size_t i = 0; i < strlen(word); i++) {
+		
+		// Ensures case insensitivity so words can be translated
+		// correctly despite case.
         char currentChar = tolower(word[i]);
-
         if (currentChar >= 'a' && currentChar <= 'c') {
             t9Sequence[i] = '2';
         } else if (currentChar >= 'd' && currentChar <= 'f') {
@@ -109,7 +120,11 @@ char* translate(const char* word) {
     return t9Sequence;
 }
 
+// Creates an empty trieNode without branches or associated word.
 trieNode* createTrieNode() {
+	
+	// creates node containing pointers to eventually other nodes
+	// and possibly a corresponding word.
     trieNode* node = (trieNode*)malloc(sizeof(trieNode));
     if (node == NULL) {
         perror("Error creating TrieNode");
@@ -123,6 +138,7 @@ trieNode* createTrieNode() {
     return node;
 }
 
+// Frees all data within every trie node.
 void free_tree(trieNode* root) {
     if (root == NULL) {
         return;

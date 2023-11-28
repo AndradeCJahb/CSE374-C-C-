@@ -29,7 +29,9 @@ char* get_word(trieNode *root, char *pattern);
 // deletes the entire tree branching from root
 void free_tree(trieNode *root);
 
+// inserts a given word into the trie data structure.
 void insertWord(trieNode* root, const char* word);
 
+// creates a trie node with empty branches and no associated word.
 trieNode* createTrieNode();
 #endif

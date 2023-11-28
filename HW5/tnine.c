@@ -13,7 +13,11 @@
 
 void run_session(trieNode *wordTrie);
 
+// Ensures that user entered Dictionary is valid and returns corresponding
+// word when given a user inputted t9 code and/or sequence of '#' characters.
 int main(int argc, char **argv) {
+	
+	// Stores the dictionary file required to create trie structure.
     FILE *dictionary = NULL;
 
     if (argc < 2) {
@@ -30,12 +34,15 @@ int main(int argc, char **argv) {
     trieNode* root = build_trie(dictionary);
     run_session(root);
 
+	// frees data from created trie and closes dictionary file.
     free_tree(root);
     fclose(dictionary);
 
     return(EXIT_SUCCESS);
 }
 
+// Builds trie data structure by inserting every word within valid
+// dictionary file into trie.
 trieNode* build_trie(FILE *dict) {
     trieNode* root = createTrieNode();
     if (!root) {
@@ -53,12 +60,17 @@ trieNode* build_trie(FILE *dict) {
     return root;
 }
 
+// Runs interactive session where user can input t9 codes and be returned
+// corresponding words, exits upon user request.
 void run_session(trieNode *wordTrie) {
     printf("Enter \"exit\" to quit.\n");
-
+	
+	// Stores future user inputs to retrieve words from trie structure.
     char input[MAXLEN];
+	
+	// Stores previous valid t9 sequence input, ensures usability of
+	// '#' to reach other t9onyms.
     char *prevInput = (char *)malloc(52);
-
     if (prevInput == NULL) {
         perror("Error allocating memory for prevWord");
         exit(EXIT_FAILURE);
@@ -66,6 +78,9 @@ void run_session(trieNode *wordTrie) {
 
     while (1) {
         printf("Enter Key Sequence (or \"#\" for next word):\n");
+		
+		// Ensures the user input is valid and formats input to ensure/
+		// usability with other functions.
         if (fgets(input, sizeof(input), stdin) == NULL) {
             break;
         }
@@ -73,7 +88,9 @@ void run_session(trieNode *wordTrie) {
         if (strcmp(input, "exit") == 0) {
             break;
         }
-
+		
+		// Stores pointer to word which will be returned to user if
+		// t9onym is found.
         char *word = NULL;
         if (strcmp(input, "#") != 0) {
             word = get_word(wordTrie, input);
@@ -84,8 +101,10 @@ void run_session(trieNode *wordTrie) {
                 word = get_word(wordTrie, strcat(prevInput, "#"));
             }
         }
-
+		
+		// Updates previous input to ensure '#' functionality.
         strncpy(prevInput, input, strlen(input) +1);
+		
         if (word != NULL) {
             printf("'%s'\n", word);
         } else if (strchr(input, '#')) {
