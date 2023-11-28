@@ -28,7 +28,7 @@ void insertWord(trieNode* root, const char* word) {
     free(wordNum);
 
     // Allocates and stores word associated with a specific node. Also
-    // hanldes case in which node already contains a word and therefore 
+    // hanldes case in which node already contains a word and therefore
     // word must be stored in a different adjacent node.
     if (current->word == NULL) {
         current->word = (char*)malloc(strlen(word) +1);
@@ -84,7 +84,6 @@ char* get_word(trieNode *root, char *pattern) {
 
 // Returns the t9 code of a given word.
 char* translate(const char* word) {
-	
     // Stores pointer to t9 sequence that is created by given word.
     char* t9Sequence = (char*)malloc((strlen(word) + 1));
     if (t9Sequence == NULL) {
@@ -93,7 +92,6 @@ char* translate(const char* word) {
     }
 
     for (size_t i = 0; i < strlen(word); i++) {
-		
         // Ensures case insensitivity so words can be translated
         // correctly despite case.
         char currentChar = tolower(word[i]);
@@ -122,7 +120,6 @@ char* translate(const char* word) {
 
 // Creates an empty trieNode without branches or associated word.
 trieNode* createTrieNode() {
-	
     // creates node containing pointers to eventually other nodes
     // and possibly a corresponding word.
     trieNode* node = (trieNode*)malloc(sizeof(trieNode));

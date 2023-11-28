@@ -16,7 +16,6 @@ void run_session(trieNode *wordTrie);
 // Ensures that user entered Dictionary is valid and returns corresponding
 // word when given a user inputted t9 code and/or sequence of '#' characters.
 int main(int argc, char **argv) {
-	
     // Stores the dictionary file required to create trie structure.
     FILE *dictionary = NULL;
 
@@ -64,10 +63,10 @@ trieNode* build_trie(FILE *dict) {
 // corresponding words, exits upon user request.
 void run_session(trieNode *wordTrie) {
     printf("Enter \"exit\" to quit.\n");
-	
+
     // Stores future user inputs to retrieve words from trie structure.
     char input[MAXLEN];
-	
+
     // Stores previous valid t9 sequence input, ensures usability of
     // '#' to reach other t9onyms.
     char *prevInput = (char *)malloc(52);
@@ -78,7 +77,7 @@ void run_session(trieNode *wordTrie) {
 
     while (1) {
         printf("Enter Key Sequence (or \"#\" for next word):\n");
-		
+
         // Ensures the user input is valid and formats input to ensure/
         // usability with other functions.
         if (fgets(input, sizeof(input), stdin) == NULL) {
@@ -88,7 +87,7 @@ void run_session(trieNode *wordTrie) {
         if (strcmp(input, "exit") == 0) {
             break;
         }
-		
+
         // Stores pointer to word which will be returned to user if
         // t9onym is found.
         char *word = NULL;
@@ -101,10 +100,10 @@ void run_session(trieNode *wordTrie) {
                 word = get_word(wordTrie, strcat(prevInput, "#"));
             }
         }
-		
+
         // Updates previous input to ensure '#' functionality.
         strncpy(prevInput, input, strlen(input) +1);
-		
+
         if (word != NULL) {
             printf("'%s'\n", word);
         } else if (strchr(input, '#')) {
