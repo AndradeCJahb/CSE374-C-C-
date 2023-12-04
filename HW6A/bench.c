@@ -74,9 +74,11 @@ int main(int argc, char** argv ) {
                 nblocks--;
             }
         }
-
-        if (i % (ntrials / 10) == 0 && i > 10) {
-            print_stats(start);
+        if(i > 10)
+        {
+            if (i % (ntrials / 10) == 0) {
+                print_stats(start);
+            }
         }
     }
 
