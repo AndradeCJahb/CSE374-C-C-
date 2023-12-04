@@ -1,0 +1,13 @@
+  Christopher Andrade
+  GitLab repository url: https://gitlab.cs.washington.edu/cse374-23au-students/cse374-23au-andradec/-/tree/main
+  12/3/2023
+  bench.c
+  
+  Through multiple tests using default parameters (no other command line arguments) the bench.c 
+  program has taken anywhere from 2ms to 10ms of CPU time, with an average of about 6ms. Total size 
+  ranged from roughly 100-500 kilobytes. Total freeblocks remained below 70 throughout with their
+  average size ranging from 1000 to 20000 bytes.
+  
+  The documentation/notes concerning uintptr_t in the spec were useful for the mostpart however some 
+  stack Overflow was sourced for specific misunderstandings/questions I had. General notes from lecture
+  slides were also used throughout.
