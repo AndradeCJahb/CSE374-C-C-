@@ -45,7 +45,6 @@ int main(int argc, char** argv ) {
 
     srand(random_seed);
 
-    printf("Running bench for %d trials, %d%% getmem calls.\n", ntrials, pctget);
 
     void* blocks[ntrials];
     int nblocks = 0;
@@ -75,9 +74,8 @@ int main(int argc, char** argv ) {
                 nblocks--;
             }
         }
-        ntrials++;
 
-        if (i % (ntrials / 10) == 0 && ntrials > 10) {
+        if (i % (ntrials / 10) == 0 && i > 10) {
             print_stats(start);
         }
     }
@@ -101,11 +99,7 @@ void print_stats(clock_t start) {
 }
 
 void fill_mem(void* ptr, uintptr_t size) {
-    uintptr_t bytes_to_fill = 16;
-    if(size < 16)
-    {
-        bytes_to_fill = size;
-    }
+    uintptr_t bytes_to_fill = (size < 16) ? size : 16;
 
     for (uintptr_t i = 0; i < bytes_to_fill; i++) {
         ((unsigned char*)ptr)[i] = 0xFE;

@@ -14,18 +14,11 @@ bench: bench.o memory.o
 bench.o: bench.c mem.h
 	$(CC) $(CARGS) -c bench.c
 
-## make debug version
-debug: CARGS += -g -D DEBUG
-debug: bench
-
-noassert: CARGS += -D NDEBUG
-noassert: bench
-
-## Utility targetscd
-
-test: debug
+# Target to run the bench test program with default parameters
+test: bench
 	./bench
-	./bench 5
 
+# Target to remove bench.o files, bench executable, and emacs backup files
 clean:
-	rm -rf bench bench.o *~ 
+	rm -f bench bench.o *~
+
