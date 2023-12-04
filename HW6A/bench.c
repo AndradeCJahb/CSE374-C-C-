@@ -3,6 +3,7 @@
   12/3/2023
   bench.c
   bench.c is the benchmarking /test program for mem memory management
+  Copyright 2023 Christopher Andrade
 */
 
 #include <stdlib.h>
@@ -87,7 +88,7 @@ int main(int argc, char** argv ) {
 
         // Prints only at roughly 10% increments of the number of trials
         // does not print at increments if number of trials is less than 10.
-        if(i > 9) {
+        if (i > 9) {
             if (i % (ntrials / 10) == 0) {
                 print_stats(start);
             }
