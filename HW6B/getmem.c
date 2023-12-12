@@ -11,7 +11,7 @@
 #include <stdio.h>
 
 /* initialize global variables ?*/
-freeNode* free_list = NULL;
+freeNode* freelist = NULL;
 uintptr_t totalmalloc = 0;
 /* Are there helper functions that only getmem will need?  Declare here. */
 
@@ -35,7 +35,7 @@ void* getmem(uintptr_t size) {
         totalSize = totalSize - totalSize % 16 + 16;
     }
 
-    freeNode* current = free_list;
+    freeNode* current = freelist;
     freeNode* prev = NULL;
 
     while (current != NULL && current->size < totalSize) {
@@ -63,7 +63,7 @@ void* getmem(uintptr_t size) {
     }
 
     if (prev == NULL) {
-        free_list = current;
+        freelist = current;
     } else {
         prev->next = current;
     }
