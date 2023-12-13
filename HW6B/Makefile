@@ -21,6 +21,12 @@ freemem.o: freemem.c mem.h mem_impl.h
 mem_utils.o: mem_utils.c mem.h mem_impl.h
 	$(CC) $(CARGS) -c mem_utils.c
 
+debug: CARGS += -g -D DEBUG
+debug: bench
+
+noassert: CARGS += -D NDEBUG
+noassert: bench
+
 test: debug
 	./bench
 	./bench 5

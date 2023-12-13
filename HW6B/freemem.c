@@ -21,6 +21,7 @@ void freemem(void* p) {
 
     freeNode* chunk = (freeNode*)((uintptr_t)p - NODESIZE);
     uintptr_t chunkSize = chunk->size;
+    totalmalloc = totalmalloc - chunkSize - NODESIZE;
 
     // Add the block to the free list and sort by memory address
     freeNode* current = freelist;
@@ -43,8 +44,6 @@ void freemem(void* p) {
 
     chunk->next = current;
     chunk->size = chunkSize;
-
-    totalmalloc = totalmalloc - chunkSize - NODESIZE;
 
     combine();
 }
