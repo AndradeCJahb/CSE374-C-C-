@@ -1,26 +1,20 @@
-/* freemem.c
-   implements freemem (free) for memory system
-   CSE 374 HW6
+/*
+  Christopher Andrade
+  12/13/2023
+  freemem.c
+  freemem.c implements freemem (free) for memory system
+  Copyright 2023 Christopher Andrade
 */
-
 #include <stdlib.h>
 #include <assert.h>
 #include "mem.h"
 #include "mem_impl.h"
 
-/* This code will be filled in by the students.  Your primary job is to
-   implement freemem functions.  */
-
-/* initialize global variables? */
-
-/* Are there helper functions that only freemem needs?  Declare here. */
-
-/* Define your functions below: */
-
-
 void combine();
 
 void freemem(void* p) {
+    check_heap();
+
     if (p == NULL) {
         return;
     }
@@ -59,7 +53,8 @@ void combine()
 {
     freeNode* current = freelist;
     while (current != NULL && current->next != NULL) {
-        if ((uintptr_t)current + NODESIZE + current->size == (uintptr_t)current->next) {
+        if ((uintptr_t)current + NODESIZE + current->size ==
+            (uintptr_t)current->next) {
             // Combine the current block with the next one
             current->size = current->size + NODESIZE + current->next->size;
             current->next = current->next->next;
