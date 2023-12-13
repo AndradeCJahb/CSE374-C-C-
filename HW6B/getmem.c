@@ -42,8 +42,8 @@ void* getmem(uintptr_t size) {
     freeNode* current = freelist;
     freeNode* prev = NULL;
 
-    // loops through freelist until a big enough free chunk is found or until end
-    // of freelist.
+    // loops through freelist until a big enough free chunk is found or
+    // until end of freelist.
     while (current != NULL && current->size < totalSize) {
         prev = current;
         current = current->next;
