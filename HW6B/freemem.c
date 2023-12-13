@@ -56,8 +56,7 @@ void freemem(void* p) {
     combine();
 }
 
-void combine()
-{
+void combine() {
     // Loops through each node within freelist to ensure that there are no
     // two free memory chunks directly adjacent to one another.
     freeNode* current = freelist;
@@ -66,7 +65,6 @@ void combine()
         // address + its own size.
         if ((uintptr_t)current + NODESIZE + current->size ==
             (uintptr_t)current->next) {
-
             // Combine the current block with the next one
             current->size = current->size + NODESIZE + current->next->size;
             current->next = current->next->next;
@@ -75,4 +73,3 @@ void combine()
         }
     }
 }
-
