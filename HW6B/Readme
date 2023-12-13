@@ -22,7 +22,7 @@
   Statistics such as number of free blocks, their respective average size and time to execute were very similar to
   the statistics observed from the files given in HW6A. Though the one statistic which was significantly different
   was the total storage statistic which in HW6A was in the range of 100-500k bytes while it exceeded a million bytes
-  in my own implementation of getmem.c and freemem.c.
+  in my own implementation of getmem.c and freemem.c (when ntrials = 10000).
 
   The lecture 23 slide notes were very helpful in implementing code which combines multiple adjacent,
   free memory blocks into a single block, slide-deck was also useful in clarifying uintptr_t.
