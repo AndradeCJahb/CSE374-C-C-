@@ -22,6 +22,7 @@ void* getmem(uintptr_t size) {
      is at least 'size' bytes long.
      To get you started we are 'stubbing in' a call that will
      return a usable value.  You will replace this code. */
+    check_heap();
 
     // Ensure that size is positive
     if (size < 1) {
@@ -30,9 +31,8 @@ void* getmem(uintptr_t size) {
 
     uintptr_t totalSize = size + NODESIZE;
 
-    // Calculate the total size including the header and align it to 16 bytes
     if (totalSize % 16 != 0) {
-        totalSize = totalSize - totalSize % 16 + 16;
+        totalSize = totalSize - (totalSize % 16) + 16;
     }
 
     freeNode* current = freelist;
@@ -44,32 +44,39 @@ void* getmem(uintptr_t size) {
     }
 
     if (current == NULL) {
-        int newSize = BIGCHUNK;
-        if(BIGCHUNK < totalSize)
-        {
-            newSize = totalSize;
+        if (BIGCHUNK + NODESIZE < totalSize) {
+            current = (freeNode*)malloc(totalSize);
+            if (current == NULL) {
+                return NULL;
+            }
+
+            current->size = totalSize - NODESIZE;
+            current->next = NULL;
+        } else {
+
+            current = (freeNode*)malloc(BIGCHUNK + NODESIZE);
+            if (current == NULL) {
+                return NULL;
+            }
+
+            current->size = BIGCHUNK;
+            if (current->size > totalSize + MINCHUNK + NODESIZE) {
+                split_node(current, totalSize);
+            }
+            freelist = current->next;
         }
-        current = (freeNode*)malloc(newSize);
-        if (current == NULL)
-        {
-            return NULL;
-        }
-        current->size = newSize - NODESIZE;
-        split_node(current, totalSize);
     } else {
-        if(current->size > totalSize + MINCHUNK + NODESIZE) {
+        if (current->size > totalSize + MINCHUNK + NODESIZE) {
             split_node(current, totalSize);
         }
-    }
-
-    if (prev == NULL) {
-        freelist = current;
-    } else {
-        prev->next = current;
+        if (prev !=NULL) {
+            prev->next = current->next;
+        } else {
+            freelist = current->next;
+        }
     }
 
     totalmalloc = totalmalloc + totalSize;
-
     return ((void*)current + NODESIZE);
 }
 
