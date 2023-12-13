@@ -1,6 +1,6 @@
 # Makefile for mem memory system
-#  Christopher Andrade
-#  12/13/2023
+# Christopher Andrade
+# 12/13/2023
 
 CC = gcc
 CARGS = -Wall -std=c11
