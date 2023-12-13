@@ -21,5 +21,15 @@ freemem.o: freemem.c mem.h mem_impl.h
 mem_utils.o: mem_utils.c mem.h mem_impl.h
 	$(CC) $(CARGS) -c mem_utils.c
 
+test: debug
+	./bench
+	./bench 5
+	./bench 50000 10
+	./bench 2 10 100
+	./bench 18 5 100 16
+	./bench 3 100 100 500 2000 1
+	./bench 4 50 50 500 2000 1
+	./bench 1 50 50 500 2000 1
+
 clean:
 	rm -rf bench freemem.o getmem.o mem_utils.o *~
